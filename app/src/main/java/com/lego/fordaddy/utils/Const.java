@@ -5,4 +5,5 @@ package com.lego.fordaddy.utils;
  */
 
 public class Const {
+
 }

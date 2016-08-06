@@ -17,16 +17,33 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.lego.fordaddy.R;
+import com.lego.fordaddy.logic.Core;
 
 public class PlayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ImageButton[] domino_array = new ImageButton[12];
+    private ImageButton[] domino_array = new ImageButton[28];
+    private Core core;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        core.stopGame();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        core.startGame();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+        core = Core.getInstance();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

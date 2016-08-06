@@ -5,4 +5,15 @@ package com.lego.fordaddy.logic;
  */
 
 public class Core {
+    private static Core instance;
+
+
+    public static Core getInstance() {
+        return instance == null ? (instance = new Core()) : instance;
+    }
+
+    public void startGame(){
+        Game game = new Game();
+    }
+    public void stopGame(){}
 }

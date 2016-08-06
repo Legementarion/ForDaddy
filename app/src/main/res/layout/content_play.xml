@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15px">
+    android:padding="15px"
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,13 +19,13 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton3"
+            android:id="@+id/imageButton1"
             android:layout_weight="1"
             android:elevation="12dp"
             android:cropToPadding="false"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/title"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,11 +39,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton5"
+            android:id="@+id/imageButton2"
             android:layout_weight="1"
             android:scaleType="fitEnd"
-            android:background="@android:drawable/screen_background_light_transparent"
-            android:layout_marginRight="25px" />
+            android:layout_marginRight="25px"
+            android:background="@android:color/transparent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/title"
+            android:id="@+id/imageButton3"
+            android:layout_weight="1"
+            android:scaleType="fitStart"
+            android:layout_marginLeft="25px"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="clip_vertical"
+        android:layout_gravity="center"
+        android:layout_weight="1">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -50,35 +69,17 @@
             app:srcCompat="@drawable/title"
             android:id="@+id/imageButton4"
             android:layout_weight="1"
-            android:scaleType="fitStart"
-            android:background="@android:drawable/screen_background_light_transparent"
-            android:layout_marginLeft="25px" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="clip_vertical"
-        android:layout_gravity="center"
-        android:layout_weight="1">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton8"
-            android:layout_weight="1"
             android:scaleType="fitEnd"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton7"
+            android:id="@+id/imageButton5"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -87,7 +88,7 @@
             android:id="@+id/imageButton6"
             android:layout_weight="1"
             android:scaleType="fitStart"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -101,28 +102,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton12"
+            android:id="@+id/imageButton7"
             android:layout_weight="1"
             android:scaleType="fitEnd"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton11"
+            android:id="@+id/imageButton8"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton10"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -130,8 +122,17 @@
             app:srcCompat="@drawable/title"
             android:id="@+id/imageButton9"
             android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/title"
+            android:id="@+id/imageButton10"
+            android:layout_weight="1"
             android:scaleType="fitStart"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -145,28 +146,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton17"
+            android:id="@+id/imageButton11"
             android:layout_weight="1"
             android:scaleType="fitEnd"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton16"
+            android:id="@+id/imageButton12"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton15"
+            android:id="@+id/imageButton13"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -175,16 +176,16 @@
             android:id="@+id/imageButton14"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton13"
+            android:id="@+id/imageButton15"
             android:layout_weight="1"
             android:scaleType="fitStart"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -198,37 +199,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton23"
+            android:id="@+id/imageButton16"
             android:layout_weight="1"
             android:scaleType="fitEnd"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton22"
+            android:id="@+id/imageButton17"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton21"
+            android:id="@+id/imageButton18"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton20"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -237,16 +229,25 @@
             android:id="@+id/imageButton19"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton18"
+            android:id="@+id/imageButton20"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/title"
+            android:id="@+id/imageButton21"
             android:layout_weight="1"
             android:scaleType="fitStart"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -260,46 +261,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton30"
+            android:id="@+id/imageButton22"
             android:layout_weight="1"
             android:scaleType="fitEnd"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton29"
+            android:id="@+id/imageButton23"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton28"
+            android:id="@+id/imageButton24"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton27"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton26"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -308,15 +291,33 @@
             android:id="@+id/imageButton25"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/title"
-            android:id="@+id/imageButton24"
+            android:id="@+id/imageButton26"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/title"
+            android:id="@+id/imageButton27"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/title"
+            android:id="@+id/imageButton28"
             android:layout_weight="1"
             android:scaleType="fitStart"
-            android:background="@android:drawable/screen_background_light_transparent" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 </LinearLayout>
