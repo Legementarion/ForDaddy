@@ -13,4 +13,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="lego_amp_panda"><![CDATA[Lego & Panda]]></string>
     <string name="developed_by">Developed by</string>
+    <string name="firstPick">%1$d</string>
+    <string name="secondPick">%1$d</string>
+
 </resources>

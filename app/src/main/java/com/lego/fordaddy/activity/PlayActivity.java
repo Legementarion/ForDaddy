@@ -126,7 +126,7 @@ public class PlayActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.nav_game:
-                Toast.makeText(this, "New Game", Toast.LENGTH_SHORT).show();
+                core.startGame();
                 break;
             case R.id.nav_help:
                 Toast.makeText(this, "game rules", Toast.LENGTH_SHORT).show();
