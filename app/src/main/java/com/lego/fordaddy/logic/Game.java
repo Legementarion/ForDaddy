@@ -13,7 +13,7 @@ public class Game {
         initGameDeck(DECK_SIZE);
     }
 
-    private static class Card {
+    public static class Card {
         int value;
         Types type;
 

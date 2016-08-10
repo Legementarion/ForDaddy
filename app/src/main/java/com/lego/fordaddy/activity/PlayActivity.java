@@ -1,8 +1,6 @@
 package com.lego.fordaddy.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,7 +20,8 @@ import com.lego.fordaddy.logic.Core;
 public class PlayActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ImageButton[] domino_array = new ImageButton[28];
+    public ImageButton[] domino_array = new ImageButton[28];
+    private int firstPick, secondPick;
     private Core core;
 
     @Override
@@ -42,7 +41,17 @@ public class PlayActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        core = Core.getInstance();
+        core = Core.getInstance(this);
+        for (int i = 1; i <= 28; i++) {
+            if ((domino_array[i - 1] = (ImageButton) findViewById(getResources().getIdentifier("imageButton" + i, "id", getPackageName()))) == null) {
+                Log.d("Cant find butt with id", "button" + i);
+                return;
+            }
+            domino_array[i - 1].setEnabled(false);
+            domino_array[i - 1].setOnClickListener(myOnClickListener);
+        }
+
+        core.startGame();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -55,14 +64,27 @@ public class PlayActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
 
-        for (int i = 1; i < 28; i++) {
-            if ((domino_array[i - 1] = (ImageButton) findViewById(getResources().getIdentifier("button" + i, "id", getPackageName()))) == null) {
-                Log.d("Cant find butt with id", "button" + i);
-                return;
+    View.OnClickListener myOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (firstPick == 0) {
+                firstPick = view.getId();
+            } else {
+                secondPick = view.getId();
+                if (firstPick != 0 && secondPick != 0){
+                    if (firstPick != secondPick) {
+                        core.doPick();
+                    } else {
+                        core.cancelPick();
+                    }
+                    firstPick = 0;
+                    secondPick = 0;
+                }
             }
         }
-    }
+    };
 
     @Override
     public void onBackPressed() {
@@ -102,7 +124,7 @@ public class PlayActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.nav_game:
                 Toast.makeText(this, "New Game", Toast.LENGTH_SHORT).show();
                 break;
