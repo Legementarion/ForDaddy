@@ -1,5 +1,8 @@
 package com.lego.fordaddy.logic;
 
+import com.lego.fordaddy.utils.Node;
+import com.lego.fordaddy.utils.Types;
+
 import java.util.Random;
 
 /**
@@ -8,88 +11,85 @@ import java.util.Random;
 
 public class Game {
     private static final int DECK_SIZE = 28;
+    int[] value;
+    Types[] types;
 
     public Game() {
         initGameDeck(DECK_SIZE);
     }
 
-    public static class Card {
-        int value;
-        Types type;
-
-        Card(int value, Types type) {
-            this.value = value;
-            this.type = type;
-        }
-
-        @Override
-        public String toString() {
-            return "type = " + type + " | value = " + value;
-        }
-    }
-
-    public Card[] cards;
+    public Node[] tree;
 
 
     private void initGameDeck(int deckSize) {
-        cards = new Card[deckSize];
-        int types = 6;
-        for (int i = 0, val = 0, type = 0; i < deckSize; i++, val++) {
-            cards[i] = new Card(val, Types.getTypeByID(type));
-            System.out.println(cards[i].toString() + " i -" + i);
-            if (val == types) {
-                val = 0;
+        tree = new Node[deckSize];
+        value = new int[deckSize];
+        types = new Types[deckSize];
+
+        for (int i = 0, j = 6, type = 0; i < deckSize; j--, i++) {
+            value[i] = j;
+            types[i] = Types.getTypeByID(type);
+            if (j == type) {
                 type++;
-                types--;
+                j = 6;
             }
         }
+        value[deckSize-1] = 6;
+
         shufle();
+
+        for (int i = 0, res = 13, row = 7; i < deckSize; i++) {
+            if (i < 7) {
+                tree[i] = new Node(null, null);
+                tree[i].setId("" + i);
+                tree[i].value = value[i];
+                tree[i].type = types[i];
+            } else {
+                tree[i] = new Node(tree[i - row], tree[i - row + 1]);
+                tree[i - row].getChildren().add(tree[i]);
+                tree[i - row + 1].getChildren().add(tree[i]);
+                tree[i].setId("" + i);
+                tree[i].value = value[i];
+                tree[i].type = types[i];
+                if (i == res) {
+                    row--;
+                    res += row;
+                }
+            }
+            System.out.println(tree[i].getId());
+            System.out.println(tree[i].value);
+            System.out.println(tree[i].type);
+        }
+
+//        printTree(tree[deckSize - 1], " ");
+
     }
 
-    public Card pickCard() {
-        int index = new Random().nextInt(cards.length);
-        Card picked = cards[index];
-        System.arraycopy(cards, index + 1, cards, index, cards.length - 1 - index);
-        return picked;
+    public Node pickCard() {
+
+        return null;
     }
 
     private void shufle() {
         Random rnd = new Random();
-        for (int i = 0; i < cards.length - 1; i++) {
-            int index = rnd.nextInt(cards.length);
-            Card buf = cards[index];
-            cards[index] = cards[i];
-            cards[i] = buf;
+        for (int i = 0; i < value.length - 1; i++) {
+            int index = rnd.nextInt(value.length);
+            int buf = value[index];
+            Types temp = types[index];
+            value[index] = value[i];
+            types[index] = types[i];
+            value[i] = buf;
+            types[i] = temp;
         }
     }
 
-    private enum Types {
-        Zero("0"),
-        One("1"),
-        Two("2"),
-        Three("3"),
-        Four("4"),
-        Five("5"),
-        Six("6");
-
-        private String id;
-
-        Types(String id) {
-            this.id = id;
+    private static void printTree(Node node, String appender) {
+        if (node == null) {
+            return;
         }
-
-        @Override
-        public String toString() {
-            return id;
-        }
-
-        public static Types getTypeByID(int id) {
-            for (Types type : values()) {
-                if (type.toString().equals(String.valueOf(id))) {
-                    return type;
-                }
-            }
-            return null;
+        System.out.println(appender + node.getId());
+        for (Node each : node.getParent()) {
+            printTree(each, appender + appender);
         }
     }
 }

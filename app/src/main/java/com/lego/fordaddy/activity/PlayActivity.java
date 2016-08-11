@@ -51,8 +51,6 @@ public class PlayActivity extends AppCompatActivity
             domino_array[i - 1].setOnClickListener(myOnClickListener);
         }
 
-        core.startGame();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -75,7 +73,7 @@ public class PlayActivity extends AppCompatActivity
                 secondPick = view.getId();
                 if (firstPick != 0 && secondPick != 0){
                     if (firstPick != secondPick) {
-                        core.doPick();
+//                        core.doPick();
                     } else {
                         core.cancelPick();
                     }
