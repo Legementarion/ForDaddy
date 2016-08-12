@@ -18,7 +18,7 @@ public class Node {
     public Node(Node mother, Node father){
         this.mother = mother;
         this.father = father;
-        setLive(true);
+        setLive(false);
     }
 
     public String getId() {

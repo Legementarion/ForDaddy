@@ -73,7 +73,7 @@ public class PlayActivity extends AppCompatActivity
                 secondPick = view.getId();
                 if (firstPick != 0 && secondPick != 0){
                     if (firstPick != secondPick) {
-//                        core.doPick();
+                        core.doPick(firstPick,secondPick);
                     } else {
                         core.cancelPick();
                     }

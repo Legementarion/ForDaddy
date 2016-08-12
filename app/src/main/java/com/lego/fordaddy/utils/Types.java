@@ -33,4 +33,8 @@ public enum Types {
         }
         return null;
     }
+
+    public int getIDByType() {
+        return Integer.valueOf(id);
+    }
 }

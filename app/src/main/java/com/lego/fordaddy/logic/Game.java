@@ -60,14 +60,6 @@ public class Game {
             System.out.println(tree[i].value);
             System.out.println(tree[i].type);
         }
-
-//        printTree(tree[deckSize - 1], " ");
-
-    }
-
-    public Node pickCard() {
-
-        return null;
     }
 
     private void shufle() {
@@ -80,16 +72,6 @@ public class Game {
             types[index] = types[i];
             value[i] = buf;
             types[i] = temp;
-        }
-    }
-
-    private static void printTree(Node node, String appender) {
-        if (node == null) {
-            return;
-        }
-        System.out.println(appender + node.getId());
-        for (Node each : node.getParent()) {
-            printTree(each, appender + appender);
         }
     }
 }
