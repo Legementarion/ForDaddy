@@ -34,11 +34,11 @@ public class Game {
                 j = 6;
             }
         }
-        value[deckSize-1] = 6;
+        value[deckSize - 1] = 6;
 
         shufle();
 
-        for (int i = 0, res = 13, row = 7; i < deckSize; i++) {
+        for (int i = 0, res = 13, row = 6; i < deckSize; i++) {
             if (i < 7) {
                 tree[i] = new Node(null, null);
                 tree[i].setId("" + i);
@@ -46,8 +46,8 @@ public class Game {
                 tree[i].type = types[i];
             } else {
                 tree[i] = new Node(tree[i - row], tree[i - row + 1]);
-                tree[i - row].getChildren().add(tree[i]);
-                tree[i - row + 1].getChildren().add(tree[i]);
+                tree[i - row].children.add(tree[i]);
+                tree[i - row + 1].children.add(tree[i]);
                 tree[i].setId("" + i);
                 tree[i].value = value[i];
                 tree[i].type = types[i];
@@ -56,9 +56,6 @@ public class Game {
                     res += row;
                 }
             }
-            System.out.println(tree[i].getId());
-            System.out.println(tree[i].value);
-            System.out.println(tree[i].type);
         }
     }
 

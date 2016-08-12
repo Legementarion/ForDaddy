@@ -11,7 +11,7 @@ public class Node {
     private boolean live;
     public int value;
     public Types type;
-    private final List<Node> children = new ArrayList<>();
+    public List<Node> children = new ArrayList<>();
     private final Node mother;
     private final Node father;
 
@@ -30,9 +30,21 @@ public class Node {
     }
 
     public List<Node> getChildren() {
-        return children;
+        if (children.size()>0) {
+            if (children.get(0) == null && children.get(1) == null) {
+                return null;
+            } else {
+                return children;
+            }
+        }else {
+            return null;
+        }
     }
+
     public List<Node> getParent() {
+        if (mother ==null && father == null){
+            return null;
+        }
         final List<Node> parent = new ArrayList<>();
         parent.add(mother);
         parent.add(father);
@@ -40,6 +52,9 @@ public class Node {
     }
 
     public boolean isLive() {
+        if (getParent() == null || getChildren() == null){
+            setLive(true);
+        }
         return live;
     }
 
