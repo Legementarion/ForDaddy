@@ -1,5 +1,7 @@
 package com.lego.fordaddy.logic;
 
+import android.util.Log;
+
 import com.lego.fordaddy.utils.Node;
 import com.lego.fordaddy.utils.Types;
 
@@ -38,23 +40,24 @@ public class Game {
 
         shufle();
 
-        for (int i = 0, res = 13, row = 6; i < deckSize; i++) {
+        for (int i = 0, res = 13, row = 7; i < deckSize; i++) {
             if (i < 7) {
                 tree[i] = new Node(null, null);
                 tree[i].setId("" + i);
                 tree[i].value = value[i];
                 tree[i].type = types[i];
             } else {
-                tree[i] = new Node(tree[i - row], tree[i - row + 1]);
-                tree[i - row].children.add(tree[i]);
-                tree[i - row + 1].children.add(tree[i]);
+                if (i == res) {
+                    row--;
+                    res += (row - 1);
+                }
+                tree[i] = new Node(tree[i - row], tree[i - (row - 1)]);
                 tree[i].setId("" + i);
                 tree[i].value = value[i];
                 tree[i].type = types[i];
-                if (i == res) {
-                    row--;
-                    res += row;
-                }
+                tree[i - row].children.add(tree[i]);
+                tree[i - (row - 1)].children.add(tree[i]);
+
             }
         }
     }
@@ -69,6 +72,22 @@ public class Game {
             types[index] = types[i];
             value[i] = buf;
             types[i] = temp;
+        }
+    }
+
+    public void printTree() {
+        for (int i = 0; i < tree.length; i++) {
+            Log.d("PRINT TREE", tree[i].getId());
+            if (tree[i].getParent() != null) {
+                for (int j = 0; j < tree[i].getParent().size(); j++)
+                    Log.d("PRINT TREE", "Parent -" + tree[i].getParent().get(j).getId());
+
+            }
+            if (tree[i].getChildren() != null) {
+                for (int j = 0; j < tree[i].getChildren().size(); j++)
+                    Log.d("PRINT TREE", "Children -" + tree[i].getChildren().get(j).getId());
+            }
+            Log.d("PRINT TREE", "---------------------");
         }
     }
 }

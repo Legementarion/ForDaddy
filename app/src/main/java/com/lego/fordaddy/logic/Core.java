@@ -6,6 +6,9 @@ import android.view.View;
 import com.lego.fordaddy.activity.PlayActivity;
 import com.lego.fordaddy.utils.Node;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * @author Lego on 04.08.2016.
@@ -32,6 +35,7 @@ public class Core {
             dominoTree.put(activity.domino_array[activity.domino_array.length - i - 1].getId(), game.tree[i]);
         }
         aDraw();
+//        game.printTree();
     }
 
     public void stopGame() {
@@ -55,8 +59,8 @@ public class Core {
         if (resultValue == 12) {
             dominoTree.get(value).setVisible(false);
             dominoTree.get(value1).setVisible(false);
-            dominoRetreat.put(value, dominoTree.get(value));
-            dominoRetreat.put(value1, dominoTree.get(value1));
+            removeRelation(dominoTree.get(value));
+            removeRelation(dominoTree.get(value1));
             aDraw();
         }
     }
@@ -77,6 +81,44 @@ public class Core {
                     }
                 }
             }
+        }
+    }
+
+    private void removeRelation(Node root) {
+        List<Node> tempList;
+        //parent
+        tempList = root.getParent();
+        if (tempList != null) {
+            for (int i = 0; i < tempList.size(); i++) {
+                for (int j = 0; j < dominoTree.size(); j++) {
+                    int key;
+                    key = dominoTree.keyAt(j);
+                    if (dominoTree.get(key) == (tempList.get(i))) {
+//                        for (int k =0; k<dominoTree.get(key).getChildren().size(); k++)
+//                            if (dominoTree.get(key).getChildren().get(k) == root){
+                        dominoTree.get(key).getChildren().remove(root);
+//                            }
+                    }
+                }
+            }
+        }
+
+        //children
+        tempList = root.getChildren();
+        if (tempList != null) {
+            for (int i = 0; i < tempList.size(); i++) {
+                for (int j = 0; j < dominoTree.size(); j++) {
+                    int key;
+                    key = dominoTree.keyAt(j);
+                    if (dominoTree.get(key) == (tempList.get(i))) {
+//                        for (int k =0; k<dominoTree.get(key).getChildren().size(); k++)
+//                            if (dominoTree.get(key).getChildren().get(k) == root){
+                        dominoTree.get(key).getParent().remove(root);
+//                            }
+                    }
+                }
+            }
+
         }
     }
 }

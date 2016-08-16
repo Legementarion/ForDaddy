@@ -12,13 +12,13 @@ public class Node {
     private boolean visible;
     public int value;
     public Types type;
+
     public List<Node> children = new ArrayList<>();
-    private final Node mother;
-    private final Node father;
+    public List<Node> parent = new ArrayList<>();
 
     public Node(Node mother, Node father){
-        this.mother = mother;
-        this.father = father;
+        parent.add(mother);
+        parent.add(father);
         setLive(false);
         setVisible(true);
     }
@@ -44,17 +44,20 @@ public class Node {
     }
 
     public List<Node> getParent() {
-        if (mother ==null && father == null){
+        if (parent.size()>0) {
+            if (parent.get(0) == null && parent.get(1) == null) {
+                return null;
+            } else {
+                return parent;
+            }
+        }else {
             return null;
         }
-        final List<Node> parent = new ArrayList<>();
-        parent.add(mother);
-        parent.add(father);
-        return parent;
     }
 
     public boolean isLive() {
-        if (getParent() == null || getChildren() == null){
+        System.out.println(toString() + " Parent - "+getParent()+" Children -" + getChildren());
+        if ((getParent() == null) || (getChildren() == null)){
             setLive(true);
         }
         return live;
