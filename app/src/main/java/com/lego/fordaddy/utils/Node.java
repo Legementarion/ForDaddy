@@ -9,6 +9,7 @@ import java.util.List;
 public class Node {
     private String id;
     private boolean live;
+    private boolean visible;
     public int value;
     public Types type;
     public List<Node> children = new ArrayList<>();
@@ -19,6 +20,7 @@ public class Node {
         this.mother = mother;
         this.father = father;
         setLive(false);
+        setVisible(true);
     }
 
     public String getId() {
@@ -65,5 +67,13 @@ public class Node {
     @Override
     public String toString() {
         return "type = " + type + " | value = " + value;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }

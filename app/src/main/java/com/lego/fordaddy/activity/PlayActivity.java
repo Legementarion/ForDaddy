@@ -74,8 +74,6 @@ public class PlayActivity extends AppCompatActivity
                 if (firstPick != 0 && secondPick != 0){
                     if (firstPick != secondPick) {
                         core.doPick(firstPick,secondPick);
-                    } else {
-                        core.cancelPick();
                     }
                     firstPick = 0;
                     secondPick = 0;
@@ -124,6 +122,7 @@ public class PlayActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.nav_game:
+                core.stopGame();
                 core.startGame();
                 break;
             case R.id.nav_help:
