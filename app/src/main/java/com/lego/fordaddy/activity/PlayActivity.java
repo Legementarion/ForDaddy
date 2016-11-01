@@ -1,7 +1,6 @@
 package com.lego.fordaddy.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,8 +24,8 @@ public class PlayActivity extends AppCompatActivity
     private Core core;
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onStop() {
+        super.onStop();
         core.stopGame();
     }
 
@@ -44,7 +43,6 @@ public class PlayActivity extends AppCompatActivity
         core = Core.getInstance(this);
         for (int i = 1; i <= 28; i++) {
             if ((domino_array[i - 1] = (ImageButton) findViewById(getResources().getIdentifier("imageButton" + i, "id", getPackageName()))) == null) {
-                Log.d("Cant find butt with id", "button" + i);
                 return;
             }
             domino_array[i - 1].setEnabled(false);
@@ -71,9 +69,9 @@ public class PlayActivity extends AppCompatActivity
                 firstPick = view.getId();
             } else {
                 secondPick = view.getId();
-                if (firstPick != 0 && secondPick != 0){
+                if (firstPick != 0 && secondPick != 0) {
                     if (firstPick != secondPick) {
-                        core.doPick(firstPick,secondPick);
+                        core.doPick(firstPick, secondPick);
                     }
                     firstPick = 0;
                     secondPick = 0;
@@ -130,8 +128,10 @@ public class PlayActivity extends AppCompatActivity
                 break;
             case R.id.nav_exit:
                 System.exit(0);
+                break;
+            default:
+                break;
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
