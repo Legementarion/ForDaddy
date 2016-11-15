@@ -10,11 +10,6 @@ import com.lego.fordaddy.utils.Node;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * @author Lego on 04.08.2016.
- */
-
 public class Core {
     private static Core instance;
     private PlayActivity activity;

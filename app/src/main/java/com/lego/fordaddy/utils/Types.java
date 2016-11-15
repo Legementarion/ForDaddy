@@ -1,10 +1,5 @@
 package com.lego.fordaddy.utils;
 
-
-/**
- * @author Lego on 11.08.2016.
- */
-
 public enum Types {
     Zero("0"),
     One("1"),

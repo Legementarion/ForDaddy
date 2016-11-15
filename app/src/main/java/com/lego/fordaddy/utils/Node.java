@@ -1,8 +1,5 @@
 package com.lego.fordaddy.utils;
 
-/**
- * @author Lego on 11.08.2016.
- */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class Node {
     }
 
     public List<Node> getChildren() {
-        if (children.size()>0) {
+        if (!children.isEmpty()) {
             if (children.get(0) == null && children.get(1) == null) {
                 return null;
             } else {
@@ -44,7 +41,7 @@ public class Node {
     }
 
     public List<Node> getParent() {
-        if (parent.size()>0) {
+        if (!parent.isEmpty()) {
             if (parent.get(0) == null && parent.get(1) == null) {
                 return null;
             } else {
@@ -56,14 +53,13 @@ public class Node {
     }
 
     public boolean isLive() {
-        System.out.println(toString() + " Parent - "+getParent()+" Children -" + getChildren());
         if ((getParent() == null) || (getChildren() == null)){
             setLive(true);
         }
         return live;
     }
 
-    public void setLive(boolean live) {
+    private void setLive(boolean live) {
         this.live = live;
     }
 

@@ -7,10 +7,6 @@ import com.lego.fordaddy.utils.Types;
 
 import java.util.Random;
 
-/**
- * @author Lego on 04.08.2016.
- */
-
 public class Game {
     private static final int DECK_SIZE = 28;
     int[] value;
@@ -21,7 +17,6 @@ public class Game {
     }
 
     public Node[] tree;
-
 
     private void initGameDeck(int deckSize) {
         tree = new Node[deckSize];
@@ -38,7 +33,7 @@ public class Game {
         }
         value[deckSize - 1] = 6;
 
-        shufle();
+        shuffle();
 
         for (int i = 0, res = 13, row = 7; i < deckSize; i++) {
             if (i < 7) {
@@ -62,7 +57,7 @@ public class Game {
         }
     }
 
-    private void shufle() {
+    private void shuffle() {
         Random rnd = new Random();
         for (int i = 0; i < value.length - 1; i++) {
             int index = rnd.nextInt(value.length);
